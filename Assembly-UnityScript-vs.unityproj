@@ -44,9 +44,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ScalerScript.js" />
      <Compile Include="Assets\Scripts\BallSource.js" />
+     <Compile Include="Assets\Scripts\Fade.js" />
      <Compile Include="Assets\Scripts\RotateBallAroundPivot.js" />
+     <Compile Include="Assets\Scripts\ScalerScript.js" />
+     <Compile Include="Assets\Scripts\TreeArrays.js" />
+     <Compile Include="Assets\Scripts\TreeNode.js" />
      <Compile Include="Assets\Scripts\TriggerScript.js" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
