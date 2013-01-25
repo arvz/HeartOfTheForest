@@ -1,6 +1,7 @@
 #pragma strict
 
-function OnTriggerEnter(other : Collider)
+function OnTriggerStay(other : Collider)
 {
-	Debug.Log("Collision yay");
+	if (Input.GetKeyDown("space"))
+		GameObject.Find("Tree1").transform.localScale += Vector3(0.15,0.15,0);
 }
