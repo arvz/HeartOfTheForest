@@ -2,8 +2,11 @@
 
 var minScale : float;
 var maxScale : float;
-var scalingSpeed : float;
-var downSpeed : float;
+var minSpeed : float;
+var maxSpeed : float;
+
+@HideInInspector
+var treeArray : Texture[];
 
 private var scalingVector : Vector3;
 private var arrayIndex : int;
@@ -15,8 +18,7 @@ function Start ()
 
 function Update () 
 {
-	scalingSpeed -= downSpeed;
-	scalingVector = Vector3(scalingSpeed, scalingSpeed, scalingSpeed);
+	scalingVector = Vector3(ScaleManager.scalingSpeed, ScaleManager.scalingSpeed, ScaleManager.scalingSpeed);
 	
 	transform.localScale += scalingVector;
 	transform.localScale = Vector3(Mathf.Clamp(transform.localScale.x, minScale, maxScale), 
@@ -29,8 +31,7 @@ function Update ()
 //Updates the sprite texture according to its size
 function UpdateSprite()
 {
-	arrayIndex = ((transform.localScale.x - minScale)/maxScale) * TreeArrays.summerTree1.length;
+	arrayIndex = ((transform.localScale.x - minScale)/maxScale) * treeArray.length;
 	
-	transform.Find("Tree1_Plane").GetComponent(MeshRenderer).material.mainTexture = 
-		TreeArrays.summerTree1[arrayIndex];
+	transform.Find("Tree1_Plane").GetComponent(MeshRenderer).material.mainTexture = treeArray[arrayIndex];
 }

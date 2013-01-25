@@ -14,16 +14,8 @@ function Awake ()
 	
 	LoadTrees(summerTree1, 1, 18);
 	LoadTrees(summerTree2, 2, 18);
-	LoadTrees(summerTree3, 3, 18);
-	LoadTrees(summerTree4, 4, 18);
-
-}
-
-function Start () {
-
-}
-
-function Update () {
+	LoadTrees(summerTree3, 1, 18);
+	LoadTrees(summerTree4, 2, 18);
 
 }
 
@@ -32,8 +24,8 @@ function LoadTrees(array : Texture[], number : int, size : int)
 	for (var i = 1; i <= size; i++)
 	{
 		if (i < 10)
-			array[i-1] = Resources.Load("Sprites/Tree"+number+"/Tree10"+i) as Texture;
+			array[i-1] = Resources.Load("Sprites/Tree"+number+"/Tree"+number+"0"+i) as Texture;
 		else
-			array[i-1] = Resources.Load("Sprites/Tree1/Tree"+number+i) as Texture; 
+			array[i-1] = Resources.Load("Sprites/Tree"+number+"/Tree"+number+i) as Texture; 
 	}
 }
