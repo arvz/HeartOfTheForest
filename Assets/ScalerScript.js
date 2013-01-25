@@ -1,12 +1,15 @@
 #pragma strict
 
-public var scalingSpeed : float;
+var maxScale : float;
+var scalingSpeed : float;
 var scalingVector : Vector3;
+var treeTextures : Texture[];
 
+private var arrayIndex : int;
 
 function Start () 
 {
-
+	arrayIndex = 0;
 }
 
 function Update () 
