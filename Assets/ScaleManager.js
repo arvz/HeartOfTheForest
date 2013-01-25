@@ -1,6 +1,6 @@
 #pragma strict
 
-static var scalingSpeed : float
+static var scalingSpeed : float;
 
 function Start () 
 {
