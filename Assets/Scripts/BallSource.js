@@ -44,8 +44,3 @@ function Update () {
 	}
 }
 
-// Destroy balls which have come all the way round.
-function OnTriggerStay (other : Collider) {
-	Destroy(other.gameObject);
-}
-
