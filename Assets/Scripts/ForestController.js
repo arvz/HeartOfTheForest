@@ -24,6 +24,8 @@ public function Grow()
 {
 	if (scalingSpeed < maxSpeed) 
 		scalingSpeed += growSpeed;
+		
+	GameObject.Find("GlowingNut").GetComponent(Glow).GlowNow();
 }
 
 public function GrowCheat()

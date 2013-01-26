@@ -18,7 +18,7 @@ private var timeForBallToPeak : float;
 
 function Start ()
 {
-	Debug.Log("Starting in scene " + Application.loadedLevel);
+//	Debug.Log("Starting in scene " + Application.loadedLevel);
 	currentSeasonIndex = Application.loadedLevel;
 	nextBallIndex = 0;
 	timeForBallToPeak = 1.0 / ballSpeed * 90;
