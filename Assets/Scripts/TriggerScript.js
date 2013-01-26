@@ -2,23 +2,23 @@
 
 //private var forestController;
 
-function Start () {
+function Start () 
+{
 	//forestController = GetComponent(ForestController);
 }
 
 function OnTriggerStay(other : Collider)
 {
-	if (Input.GetKeyDown("space")) {
+	if (Input.GetKeyDown("space")) 
+	{
 		// TODO: trigger some hit animation?
 		Destroy(other.gameObject);
-		GetComponent(ForestController).GrowFaster();
+		GameObject.Find("ForestController").GetComponent(ForestController).Grow();
 	}
 }
 
-function OnTriggerExit(other : Collider) {
-	// Missed this ball, trigger forest shrinkage.
-	GetComponent(ForestController).GrowSlower();
-
+function OnTriggerExit(other : Collider) 
+{
 	// Destroy in 0.5 sec.
 	// TODO: some animation?
 	Destroy(other.gameObject, 0.5);

@@ -18,14 +18,13 @@ function Start ()
 
 function Update () 
 {
-	scalingVector = Vector3(ScaleManager.scalingSpeed, ScaleManager.scalingSpeed, ScaleManager.scalingSpeed);
+	scalingVector = Vector3(ForestController.scalingSpeed, ForestController.scalingSpeed, ForestController.scalingSpeed);
 	
 	transform.localScale += scalingVector;
 	transform.localScale = Vector3(Mathf.Clamp(transform.localScale.x, minScale, maxScale), 
 								   Mathf.Clamp(transform.localScale.y, minScale, maxScale), 
 								   Mathf.Clamp(transform.localScale.z, minScale, maxScale));
 	UpdateSprite();
-	
 }
 
 //Updates the sprite texture according to its size
