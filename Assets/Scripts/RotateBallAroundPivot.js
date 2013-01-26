@@ -3,11 +3,6 @@
 var pivot : Transform;
 var speed : float;
 
-function Start () 
-{
-
-}
-
 function FixedUpdate () {
 	renderer.material.color.a += 0.02;
 }
