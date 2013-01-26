@@ -18,7 +18,6 @@ function Update ()
 	scalingSpeed -= downGrowSpeed;
 	scalingSpeed = Mathf.Clamp(scalingSpeed, minSpeed, maxSpeed);
 	
-//	Debug.Log("scalingSpeed: " + scalingSpeed);
 }
 
 public function Grow() 
@@ -29,3 +28,7 @@ public function Grow()
 	}
 }
 
+public function Shrink() 
+{
+	// implement me!
+}

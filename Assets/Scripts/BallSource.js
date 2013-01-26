@@ -45,16 +45,42 @@ function Start () {
 	nextBallIndex = 0;
 
 	measures = new Array();
+	measures.Push(new Measure(4, Minims(2)));
+	measures.Push(new Measure(4, Minims(2)));
 	measures.Push(new Measure(4, Crotchets(4)));
 	measures.Push(new Measure(4, Crotchets(4)));
+	measures.Push(new Measure(4, Crotchets(2)
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))));
 	measures.Push(new Measure(4, Quavers(2)
 				.Concat(Crotchets(1))
 				.Concat(Quavers(2))
 				.Concat(Crotchets(1))));
 	measures.Push(new Measure(4, Quavers(8)));
+	measures.Push(new Measure(4, Quavers(1)
+				.Concat(Crotchets(1))
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))
+				.Concat(Quavers(1))));
+	measures.Push(new Measure(4, Quavers(1)
+				.Concat(Crotchets(1))
+				.Concat(Crotchets(1))
+				.Concat(Crotchets(1))
+				.Concat(Quavers(1))));
+	measures.Push(new Measure(4, SemiQuavers(2)
+				.Concat(Quavers(1))
+				.Concat(Crotchets(1))
+				.Concat(SemiQuavers(2))
+				.Concat(Quavers(1))
+				.Concat(Crotchets(1))));
+	measures.Push(new Measure(4, Crotchets(2)
+				.Concat(CrotchetTriplets(1))));
+	measures.Push(new Measure(4, Quavers(2)
+				.Concat(QuaverTriplets(2))
+				.Concat(Crotchets(1))));
 }
 
-function Update () {
+function FixedUpdate () {
 	var barDuration = (measures[currentMeasureIndex] as Measure).beats / beatsPerMinute * 60;
 
 	if (Time.time > currentMeasureStartTime + barDuration) {
@@ -81,18 +107,34 @@ function Update () {
 	}
 }
 
+private function Minims(n : int) {
+	return Notes(n, 2);
+}
+
 private function Crotchets(n : int) {
-  var notes = new Array(n);
-	for (var i = 0; i < n; ++i) {
-		notes[i] = 1;
-	}
-	return notes;
+	return Notes(n, 1);
 }
 
 private function Quavers(n : int) {
+	return Notes(n, 0.5);
+}
+
+private function SemiQuavers(n : int) {
+	return Notes(n, 0.25);
+}
+
+private function CrotchetTriplets(n : int) {
+	return Notes(3 * n, 2.0 / 3);
+}
+
+private function QuaverTriplets(n : int) {
+	return Notes(3 * n, 1.0 / 3);
+}
+
+private function Notes(n : int, d : float) {
   var notes = new Array(n);
 	for (var i = 0; i < n; ++i) {
-		notes[i] = 0.5;
+		notes[i] = d;
 	}
 	return notes;
 }
