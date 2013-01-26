@@ -7,7 +7,7 @@ var ballSpeed : float; // degress / sec
 var currentSeasonIndex : int = 0;
 
 var ballPrefab : GameObject;
-
+var numBalls : int;
 
 // Array of timestamps of the balls to peak
 private var timestamps : Array;
@@ -23,6 +23,7 @@ function Start ()
 	nextBallIndex = 0;
 	timeForBallToPeak = 1.0 / ballSpeed * 90;
 	LoadTimestamps();
+	numBalls = timestamps.length;
 }
 
 function FixedUpdate () 
@@ -57,6 +58,13 @@ private function SourceBallsFromTimestamps()
 			SpawnBall();
 			nextBallIndex += 1;
 		}
+	} else if (currentSeasonIndex < 3) {
+		var lastBallTime : float = timestamps[nextBallIndex - 1];
+		if (Time.timeSinceLevelLoad - lastBallTime > 5) {
+			Application.LoadLevel(currentSeasonIndex + 1);
+		}
+	} else {
+		// Game over
 	}
 }
 
