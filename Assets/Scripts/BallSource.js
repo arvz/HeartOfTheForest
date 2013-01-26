@@ -25,9 +25,9 @@ class Measure {
 			offsets[i] = currentOffset;
 			currentOffset += notes[i];
 		}
-		Debug.Log("Notes: " + notes.length + ", off " + currentOffset);
+//		Debug.Log("Notes: " + notes.length + ", off " + currentOffset);
 		if (currentOffset > beats) {
-			Debug.LogWarning("Bar is too long! " + currentOffset); 
+//			Debug.LogWarning("Bar is too long! " + currentOffset); 
 		}
 		return offsets;
 	}
@@ -49,7 +49,7 @@ function Start () {
 	measures.Push(new Measure(4, Crotchets(4)));
 	measures.Push(new Measure(4, Crotchets(4)));
 	measures.Push(new Measure(4, Quavers(8)));
-	Debug.Log("Measures " + measures);
+//	Debug.Log("Measures " + measures);
 }
 
 function Update () {

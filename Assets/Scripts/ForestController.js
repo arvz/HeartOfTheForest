@@ -1,28 +1,31 @@
 #pragma strict
 
-var minScalingSpeed = -0.010;
-var maxScalingSpeed = 0.020;
+var minSpeed : float;
+var maxSpeed : float;
 
-var scalingSpeed : float;
+var downGrowSpeed : float;
+var growSpeed : float;
 
-function Start () {
+static var scalingSpeed : float;
+
+function Start () 
+{
 	scalingSpeed = 0;
 }
 
-function Update () {
-	GameObject.Find("Tree1").GetComponent(ScalerScript).scalingSpeed = scalingSpeed;
+function Update () 
+{
+	scalingSpeed -= downGrowSpeed;
+	scalingSpeed = Mathf.Clamp(scalingSpeed, minSpeed, maxSpeed);
+	
+	Debug.Log("scalingSpeed: " + scalingSpeed);
 }
 
-public function GrowFaster () {
-	Debug.Log("Grow faster");
-	if (scalingSpeed < maxScalingSpeed) {
-		scalingSpeed += 0.005;
+public function Grow() 
+{
+	if (scalingSpeed < maxSpeed) 
+	{
+		scalingSpeed += growSpeed;
 	}
 }
 
-function GrowSlower() {
-	Debug.Log("Grow slower");
-	if (scalingSpeed > minScalingSpeed) {
-		scalingSpeed -= 0.005;
-	}
-}

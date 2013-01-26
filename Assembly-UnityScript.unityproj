@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BallSource.js" />
      <Compile Include="Assets\Scripts\Fade.js" />
+     <Compile Include="Assets\Scripts\ForestController.js" />
      <Compile Include="Assets\Scripts\RotateBallAroundPivot.js" />
      <Compile Include="Assets\Scripts\ScalerScript.js" />
      <Compile Include="Assets\Scripts\TreeArrays.js" />
