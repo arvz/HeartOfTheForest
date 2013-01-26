@@ -11,7 +11,6 @@ private var swayDirection: String;
 
 function Start () 
 {
-	
 	swayAmount = Random.Range(minSway, maxSway);
 	
 	swayDirection = "right";
@@ -20,6 +19,9 @@ function Start ()
 	
 	if (minRotation < 0)
 		minRotation = 0.05;
+		
+	if (maxRotation >360)
+		maxRotation = 360;
 }
 
 function Update () 

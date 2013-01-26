@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnimateCloud.js" />
      <Compile Include="Assets\Scripts\ArrayFactory.js" />
+     <Compile Include="Assets\Scripts\BackTreeNode.js" />
      <Compile Include="Assets\Scripts\BallSource.js" />
      <Compile Include="Assets\Scripts\BushNode.js" />
      <Compile Include="Assets\Scripts\Fade.js" />

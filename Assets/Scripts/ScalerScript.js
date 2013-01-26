@@ -2,8 +2,7 @@
 
 var minScale : float;
 var maxScale : float;
-var minSpeed : float;
-var maxSpeed : float;
+var speedMultiplier : float;
 
 var array : Texture[];
 
@@ -21,11 +20,13 @@ function Update ()
 {
 	if (!complete)
 	{
-		scalingVector = Vector3(ForestController.scalingSpeed, ForestController.scalingSpeed, ForestController.scalingSpeed);
+		var speed = ForestController.scalingSpeed * speedMultiplier;
+		scalingVector = Vector3(speed, speed, speed);
+		
 		transform.localScale += scalingVector;
 		transform.localScale = Vector3(Mathf.Clamp(transform.localScale.x, minScale, maxScale), 
-								   Mathf.Clamp(transform.localScale.y, minScale, maxScale), 
-								   Mathf.Clamp(transform.localScale.z, minScale, maxScale));
+							   		   Mathf.Clamp(transform.localScale.y, minScale, maxScale), 
+								       Mathf.Clamp(transform.localScale.z, minScale, maxScale));
 								   
 		UpdateSprite();
 		
