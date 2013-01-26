@@ -25,9 +25,8 @@ class Measure {
 			offsets[i] = currentOffset;
 			currentOffset += notes[i];
 		}
-//		Debug.Log("Notes: " + notes.length + ", off " + currentOffset);
 		if (currentOffset > beats) {
-//			Debug.LogWarning("Bar is too long! " + currentOffset); 
+			Debug.LogWarning("Bar is too long! " + currentOffset); 
 		}
 		return offsets;
 	}
@@ -48,8 +47,11 @@ function Start () {
 	measures = new Array();
 	measures.Push(new Measure(4, Crotchets(4)));
 	measures.Push(new Measure(4, Crotchets(4)));
+	measures.Push(new Measure(4, Quavers(2)
+				.Concat(Crotchets(1))
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))));
 	measures.Push(new Measure(4, Quavers(8)));
-//	Debug.Log("Measures " + measures);
 }
 
 function Update () {
@@ -71,13 +73,16 @@ function Update () {
 			var newBall = Instantiate(ballPrefab);
 			newBall.GetComponent(RotateBallAroundPivot).pivot = GameObject.Find("BallPivot").transform;
 			newBall.GetComponent(RotateBallAroundPivot).speed = ballSpeed;
+			if (nextBallIndex == 0) {
+				newBall.renderer.material.color = Color.red;
+			}
 			nextBallIndex += 1;
 		}
 	}
 }
 
 private function Crotchets(n : int) {
-  var notes = new float[n];
+  var notes = new Array(n);
 	for (var i = 0; i < n; ++i) {
 		notes[i] = 1;
 	}
@@ -85,7 +90,7 @@ private function Crotchets(n : int) {
 }
 
 private function Quavers(n : int) {
-  var notes = new float[n];
+  var notes = new Array(n);
 	for (var i = 0; i < n; ++i) {
 		notes[i] = 0.5;
 	}
