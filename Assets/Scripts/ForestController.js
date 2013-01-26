@@ -29,3 +29,7 @@ public function Grow()
 	}
 }
 
+public function Shrink() 
+{
+	// implement me!
+}

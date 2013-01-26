@@ -11,10 +11,12 @@ function Update ()
 {
 	isKeyDown = Input.GetKeyDown("space");
 	if (isKeyDown && colliding.length > 0) {
-		var collider : Collider = colliding.Pop();
+		var collider : Collider = colliding.Shift();
 		Destroy(collider.gameObject);
 		RemoveColliding(collider);
 		GameObject.Find("ForestController").GetComponent(ForestController).Grow();
+	} else if (isKeyDown) {
+		GameObject.Find("ForestController").GetComponent(ForestController).Shrink();
 	}
 }
 
