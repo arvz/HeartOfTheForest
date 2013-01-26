@@ -14,7 +14,7 @@ function Awake ()
 	
 	LoadTrees(summerTree1, 1, 18);
 	LoadTrees(summerTree2, 2, 18);
-	LoadTrees(summerTree3, 1, 18);
+	LoadTrees(summerTree3, 3, 18);
 	LoadTrees(summerTree4, 2, 18);
 
 }
