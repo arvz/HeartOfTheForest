@@ -7,10 +7,10 @@ var minSway : float;
 var maxSway : float;
 
 var swayAmount : float;
-
 private var swayDirection: String;
 
-function Start () {
+function Start () 
+{
 	
 	swayAmount = Random.Range(minSway, maxSway);
 	
@@ -24,8 +24,6 @@ function Start () {
 
 function Update () 
 {
-	print("Direction: " + swayDirection);
-
 	if (transform.eulerAngles.z >= 0.98*maxRotation)
 		swayDirection = "left";
 	else if (transform.eulerAngles.z <= minRotation + (0.02*minRotation))

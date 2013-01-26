@@ -5,8 +5,7 @@ var maxScale : float;
 var minSpeed : float;
 var maxSpeed : float;
 
-@HideInInspector
-var treeArray : Texture[];
+var array : Texture[];
 
 private var scalingVector : Vector3;
 private var arrayIndex : int;
@@ -35,11 +34,9 @@ function Update ()
 	}
 }
 
-
-
 //Updates the sprite texture according to its size
 function UpdateSprite()
 {
-	arrayIndex = ((transform.localScale.x - minScale)/maxScale) * treeArray.length;
-	transform.Find("Tree1_Plane").GetComponent(MeshRenderer).material.mainTexture = treeArray[arrayIndex];
+	arrayIndex = ((transform.localScale.x - minScale)/(maxScale-minScale)) * ((array.length)-1);
+	transform.Find("Plane").GetComponent(MeshRenderer).material.mainTexture = array[arrayIndex];
 }

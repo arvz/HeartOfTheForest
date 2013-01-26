@@ -3,11 +3,13 @@
 var pivot : Transform;
 var speed : float;
 
-function FixedUpdate () {
+function FixedUpdate () 
+{
 	renderer.material.color.a += 0.02;
+	
 }
 
-function Update () 
+function LateUpdate () 
 {
 	transform.RotateAround (pivot.localPosition, Vector3.forward, -speed * Time.deltaTime);
 }
