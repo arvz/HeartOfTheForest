@@ -18,7 +18,7 @@ function Update ()
 	scalingSpeed -= downGrowSpeed;
 	scalingSpeed = Mathf.Clamp(scalingSpeed, minSpeed, maxSpeed);
 	
-	Debug.Log("scalingSpeed: " + scalingSpeed);
+//	Debug.Log("scalingSpeed: " + scalingSpeed);
 }
 
 public function Grow() 

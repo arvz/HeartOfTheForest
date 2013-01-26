@@ -17,7 +17,8 @@ function Start ()
 
 function RandomTree() : Texture[]
 {
-	var num : int = Random.Range(1,4);
+	var num : int = Random.Range(1,5);
+	Debug.Log("Using Tree " + num);
 	
 	switch (num)
 	{
