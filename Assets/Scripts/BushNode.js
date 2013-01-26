@@ -15,7 +15,7 @@ function Start ()
 
 function RandomBush() : Texture[]
 {
-	var num : int = Random.Range(1,2);
+	var num : int = Random.Range(1,3);
 	
 	switch (num)
 	{

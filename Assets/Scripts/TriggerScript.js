@@ -9,6 +9,10 @@ function Start ()
 
 function Update () 
 {
+	//Debugging cheat
+	if (Input.GetKeyDown("return"))
+		GameObject.Find("ForestController").GetComponent(ForestController).GrowCheat();
+
 	isKeyDown = Input.GetKeyDown("space");
 	if (isKeyDown && colliding.length > 0) {
 		var collider : Collider = colliding.Shift();

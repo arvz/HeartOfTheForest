@@ -23,9 +23,13 @@ function Update ()
 public function Grow() 
 {
 	if (scalingSpeed < maxSpeed) 
-	{
 		scalingSpeed += growSpeed;
-	}
+}
+
+public function GrowCheat()
+{
+	if (scalingSpeed < maxSpeed)
+		scalingSpeed += growSpeed*15;
 }
 
 public function Shrink() 
