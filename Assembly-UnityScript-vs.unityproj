@@ -44,11 +44,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\RotateSun.js" />
      <Compile Include="Assets\Scripts\AnimateCloud.js" />
      <Compile Include="Assets\Scripts\ArrayFactory.js" />
      <Compile Include="Assets\Scripts\BackTreeNode.js" />
      <Compile Include="Assets\Scripts\BallSource.js" />
      <Compile Include="Assets\Scripts\BushNode.js" />
+     <Compile Include="Assets\Scripts\CloudNode.js" />
      <Compile Include="Assets\Scripts\Fade.js" />
      <Compile Include="Assets\Scripts\ForestController.js" />
      <Compile Include="Assets\Scripts\RotateBallAroundPivot.js" />
@@ -56,6 +58,7 @@
      <Compile Include="Assets\Scripts\TreeNode.js" />
      <Compile Include="Assets\Scripts\TreeSway.js" />
      <Compile Include="Assets\Scripts\TriggerScript.js" />
+     <Compile Include="Assets\Scripts\VineNode.js" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />

@@ -29,7 +29,7 @@ public function Grow()
 public function GrowCheat()
 {
 	if (scalingSpeed < maxSpeed)
-		scalingSpeed += growSpeed*15;
+		scalingSpeed += growSpeed*100;
 }
 
 public function Shrink() 
