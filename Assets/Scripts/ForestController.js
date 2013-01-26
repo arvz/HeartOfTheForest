@@ -30,5 +30,7 @@ public function Grow()
 
 public function Shrink() 
 {
-	// implement me!
+	if (scalingSpeed > minSpeed) {
+		scalingSpeed -= 2*growSpeed;
+	}
 }

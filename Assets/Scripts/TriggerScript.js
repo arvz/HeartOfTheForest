@@ -29,7 +29,7 @@ function OnTriggerExit(other : Collider)
 {
 	// Destroy in 0.5 sec.
 	// TODO: some animation?
-	Destroy(other.gameObject, 0.5);
+	Destroy(other.gameObject, 1);
 	RemoveColliding(other);
 }
 

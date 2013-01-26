@@ -2,6 +2,7 @@
 
 var ballSpeed : float;
 var beatsPerMinute : float;
+var currentSeasonIndex : int = 0;
 
 var ballPrefab : GameObject;
 
@@ -25,71 +26,40 @@ class Measure {
 			offsets[i] = currentOffset;
 			currentOffset += notes[i];
 		}
-		if (currentOffset > beats) {
-			Debug.LogWarning("Bar is too long! " + currentOffset); 
+		if (Mathf.Abs(currentOffset - beats) > 0.1) {
+			Debug.LogError("Bar is wrong length! " + currentOffset); 
 		}
 		return offsets;
 	}
 }
 
-// Hardcoded measures for testing
-//private var bar = new Measure(4, Crotchets(4));
-private var measures : Array;
+private var seasons : Array;
 
 private var currentMeasureIndex : int;
 private var currentMeasureStartTime : float;
 private var nextBallIndex : float;
 
 function Start () {
+	currentSeasonIndex = 0;
 	currentMeasureIndex = 0;
 	nextBallIndex = 0;
-
-	measures = new Array();
-	measures.Push(new Measure(4, Minims(2)));
-	measures.Push(new Measure(4, Minims(2)));
-	measures.Push(new Measure(4, Crotchets(4)));
-	measures.Push(new Measure(4, Crotchets(4)));
-	measures.Push(new Measure(4, Crotchets(2)
-				.Concat(Quavers(2))
-				.Concat(Crotchets(1))));
-	measures.Push(new Measure(4, Quavers(2)
-				.Concat(Crotchets(1))
-				.Concat(Quavers(2))
-				.Concat(Crotchets(1))));
-	measures.Push(new Measure(4, Quavers(8)));
-	measures.Push(new Measure(4, Quavers(1)
-				.Concat(Crotchets(1))
-				.Concat(Quavers(2))
-				.Concat(Crotchets(1))
-				.Concat(Quavers(1))));
-	measures.Push(new Measure(4, Quavers(1)
-				.Concat(Crotchets(1))
-				.Concat(Crotchets(1))
-				.Concat(Crotchets(1))
-				.Concat(Quavers(1))));
-	measures.Push(new Measure(4, SemiQuavers(2)
-				.Concat(Quavers(1))
-				.Concat(Crotchets(1))
-				.Concat(SemiQuavers(2))
-				.Concat(Quavers(1))
-				.Concat(Crotchets(1))));
-	measures.Push(new Measure(4, Crotchets(2)
-				.Concat(CrotchetTriplets(1))));
-	measures.Push(new Measure(4, Quavers(2)
-				.Concat(QuaverTriplets(2))
-				.Concat(Crotchets(1))));
+	LoadSeasons();
 }
 
 function FixedUpdate () {
-	var barDuration = (measures[currentMeasureIndex] as Measure).beats / beatsPerMinute * 60;
+	var currentSeason : Array = seasons[currentSeasonIndex];
+	var barDuration = (currentSeason[currentMeasureIndex] as Measure).beats / beatsPerMinute * 60;
 
 	if (Time.time > currentMeasureStartTime + barDuration) {
 		// Measure has finished, move to the next.
-		currentMeasureIndex = (currentMeasureIndex + 1) % measures.length;
+		currentMeasureIndex += 1;
+		if (currentMeasureIndex >= currentSeason.length) {
+			currentMeasureIndex = currentSeason.length - 4;
+		}
 		currentMeasureStartTime = Time.time;
 		nextBallIndex = 0;
 	}
-	var currentMeasure : Measure = measures[currentMeasureIndex] as Measure;
+	var currentMeasure : Measure = currentSeason[currentMeasureIndex] as Measure;
 
 	if (nextBallIndex < currentMeasure.offsets.length) {
 		var secondsPerBeat = 60 / beatsPerMinute;
@@ -107,6 +77,82 @@ function FixedUpdate () {
 	}
 }
 
+private function LoadSeasons() {
+	// Spring: joy, life, energy, dotted rhythms.
+	var spring = new Array();
+	spring.Push(new Measure(4, Minims(2)));
+	spring.Push(new Measure(4, Minims(2)));
+	spring.Push(new Measure(4, Crotchets(4)));
+	spring.Push(new Measure(4, Crotchets(4)));
+	spring.Push(new Measure(4, Crotchets(2)
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, Quavers(2)
+				.Concat(Crotchets(1))
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, Quavers(8)));
+	spring.Push(new Measure(4, Quavers(1)
+				.Concat(Crotchets(1))
+				.Concat(Quavers(2))
+				.Concat(Crotchets(1))
+				.Concat(Quavers(1))));
+	spring.Push(new Measure(4, Quavers(1)
+				.Concat(Crotchets(1))
+				.Concat(Crotchets(1))
+				.Concat(Crotchets(1))
+				.Concat(Quavers(1))));
+	spring.Push(new Measure(4, Crotchets(1)
+				.Concat(Quavers(1))
+				.Concat(DottedCrotchets(1))
+				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, Quavers(2)
+				.Concat(Quavers(1))
+				.Concat(DottedCrotchets(1))
+				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, SemiQuavers(2)
+				.Concat(Quavers(1))
+				.Concat(Crotchets(1))
+				.Concat(SemiQuavers(2))
+				.Concat(Quavers(1))
+				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, Quavers(1)
+				.Concat(SemiQuavers(1))
+				.Concat(DottedQuavers(1))
+				.Concat(SemiQuavers(1))
+				.Concat(DottedQuavers(1))
+				.Concat(SemiQuavers(1))
+				.Concat(DottedQuavers(1))
+				.Concat(SemiQuavers(2))));
+	spring.Push(new Measure(4, Quavers(1)
+				.Concat(Crotchets(1))
+				.Concat(SemiQuavers(2))
+				.Concat(Quavers(1))
+				.Concat(SemiQuavers(2))
+				.Concat(Quavers(2))));
+	spring.Push(new Measure(4, Quavers(1)
+				.Concat(SemiQuavers(1))
+				.Concat(Quavers(1))
+				.Concat(SemiQuavers(2))
+				.Concat(Quavers(1))
+				.Concat(SemiQuavers(1))
+				.Concat(Quavers(3))));
+
+	// Relaxed, triplets
+	var summer = new Array();
+	summer.Push(new Measure(4, Minims(2)));
+	summer.Push(new Measure(4, Crotchets(4)));
+	summer.Push(new Measure(4, Crotchets(2)
+				.Concat(CrotchetTriplets(1))));
+	summer.Push(new Measure(4, Quavers(2)
+				.Concat(QuaverTriplets(2))
+				.Concat(Crotchets(1))));
+
+	seasons = new Array();
+	seasons.Push(spring);
+	seasons.Push(summer);
+}
+
 private function Minims(n : int) {
 	return Notes(n, 2);
 }
@@ -119,8 +165,23 @@ private function Quavers(n : int) {
 	return Notes(n, 0.5);
 }
 
+private function DottedCrotchets(n : int) {
+	return Notes(n, 1.5);
+}
+
+private function LongShortQuavers(n : int) {
+	var pair = new Array();
+	pair.Push(0.75);
+	pair.Push(0.25);
+	return Repeat(pair, n);
+}
+
 private function SemiQuavers(n : int) {
 	return Notes(n, 0.25);
+}
+
+private function DottedQuavers(n : int) {
+	return Notes(n, 0.75);
 }
 
 private function CrotchetTriplets(n : int) {
@@ -137,4 +198,12 @@ private function Notes(n : int, d : float) {
 		notes[i] = d;
 	}
 	return notes;
+}
+
+private function Repeat(a : Array, n : int) {
+	var result = new Array();
+	for (var i = 0; i < n; ++i) {
+		result = result.Concat(a);
+	}
+	return result;
 }
