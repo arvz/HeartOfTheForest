@@ -3,6 +3,8 @@
 var ballSpeed : float;
 var beatsPerMinute : float;
 
+var ballPrefab : GameObject;
+
 // A measure of rhythm: a collection of notes related
 // to beats.
 class Measure {
@@ -66,7 +68,8 @@ function Update () {
 		var nextBallTime = currentMeasureStartTime + currentMeasure.offsets[nextBallIndex] * secondsPerBeat;
 		if (Time.time > nextBallTime) {
 			var b = GameObject.Find("Ball");
-			var newBall = Instantiate(b);
+			var newBall = Instantiate(ballPrefab);
+			newBall.GetComponent(RotateBallAroundPivot).pivot = GameObject.Find("BallPivot").transform;
 			newBall.GetComponent(RotateBallAroundPivot).speed = ballSpeed;
 			nextBallIndex += 1;
 		}
