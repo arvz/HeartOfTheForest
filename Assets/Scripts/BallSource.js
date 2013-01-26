@@ -40,7 +40,8 @@ private var currentMeasureStartTime : float;
 private var nextBallIndex : float;
 
 function Start () {
-	currentSeasonIndex = 0;
+	Debug.Log("Starting in scene " + Application.loadedLevel);
+	currentSeasonIndex = Application.loadedLevel;
 	currentMeasureIndex = 0;
 	nextBallIndex = 0;
 	LoadSeasons();
@@ -110,6 +111,10 @@ private function LoadSeasons() {
 				.Concat(Quavers(1))
 				.Concat(DottedCrotchets(1))
 				.Concat(Crotchets(1))));
+	spring.Push(new Measure(4, Quavers(1) // totoro
+				.Concat(SemiQuavers(1))
+				.Concat(Quavers(3))
+				.Concat(Notes(1, 1.75))));
 	spring.Push(new Measure(4, SemiQuavers(2)
 				.Concat(Quavers(1))
 				.Concat(Crotchets(1))
