@@ -33,23 +33,34 @@ function FixedUpdate ()
 
 function LoadTimestamps () 
 {
-	var filename = "level" + currentSeasonIndex + ".txt";
+	var filename = "level" + (currentSeasonIndex-1);
 	timestamps = new Array();
-	if (File.Exists(filename)) {
-		var sr = File.OpenText(filename);
-		var line = sr.ReadLine();
-		while (line != null) {
-			timestamps.Push(float.Parse(line));
-			line = sr.ReadLine();
+	
+	//if (File.Exists(filename)) {
+	//	var sr = File.OpenText(filename);
+	//	var line = sr.ReadLine();
+	//	while (line != null) {
+	//		timestamps.Push(float.Parse(line));
+	//		line = sr.ReadLine();
+	//	}
+	//} else {
+	//	Debug.LogError("Can't find " + filename);
+	//}
+	var data : TextAsset = UnityEngine.Resources.Load(filename) as TextAsset;
+	var lines : String[] = data.text.Split("\n"[0]);
+	for (var line in lines) {
+		var f : float = 0.0;
+		if (float.TryParse(line, f) != 0.0 && f > 0.0) {
+			timestamps.Push(f);
 		}
-	} else {
-		Debug.LogError("Can't find " + filename);
 	}
+	
 }
 
 
 private function SourceBallsFromTimestamps() 
 {
+    var lastBallTime : float;
 	if (nextBallIndex < timestamps.length) {
 		var nextBallTimestamp : float = timestamps[nextBallIndex];
 		nextBallTimestamp	-= timeForBallToPeak;
@@ -58,14 +69,19 @@ private function SourceBallsFromTimestamps()
 			SpawnBall();
 			nextBallIndex += 1;
 		}
-	} else if (currentSeasonIndex < 3) {
-		var lastBallTime : float = timestamps[nextBallIndex - 1];
+	} else if (currentSeasonIndex < 4) {
+		lastBallTime = timestamps[nextBallIndex - 1];
 		if (Time.timeSinceLevelLoad - lastBallTime > 5) {
 			AutoFade.LoadLevel(currentSeasonIndex+1, 3, 1, Color.white);
-//			Application.LoadLevel(currentSeasonIndex + 1);
 		}
 	} else {
-		// Game over
+		lastBallTime = timestamps[nextBallIndex - 1];
+		if (Time.timeSinceLevelLoad - lastBallTime > 7) {
+			GameObject.Find("Credits").guiTexture.enabled = true;
+			if (Input.GetKeyDown("space")) {
+				Application.LoadLevel(1);
+			}
+		}
 	}
 }
 

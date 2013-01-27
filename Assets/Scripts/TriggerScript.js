@@ -56,6 +56,8 @@ function Update ()
 		Application.LoadLevel(2);
 	} else if (Input.GetKeyDown("3")) {
 		Application.LoadLevel(3);
+	} else if (Input.GetKeyDown("4")) {
+		Application.LoadLevel(4);
 	}
 }
 

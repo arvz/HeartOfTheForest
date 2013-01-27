@@ -44,8 +44,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AutoFade.cs" />
+     <Compile Include="Assets\Scripts\KeepRatio.cs" />
+     <None Include="Assets\Resources\level0.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Resources\level2.txt" />
+     <None Include="Assets\Resources\level1.txt" />
+     <None Include="Assets\Resources\level3.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

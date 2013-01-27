@@ -44,7 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Blink.js" />
+     <Compile Include="Assets\BlinkAndContinue.js" />
      <Compile Include="Assets\Scripts\AnimateCloud.js" />
      <Compile Include="Assets\Scripts\ArrayFactory.js" />
      <Compile Include="Assets\Scripts\Autumn\Autumn_BackTreeNode.js" />
@@ -75,7 +75,11 @@
      <Compile Include="Assets\Scripts\Winter\Winter_BushNode.js" />
      <Compile Include="Assets\Scripts\Winter\Winter_TreeNode.js" />
      <Compile Include="Assets\Scripts\Winter\Winter_VineNode.js" />
+     <None Include="Assets\Resources\level0.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Resources\level2.txt" />
+     <None Include="Assets\Resources\level1.txt" />
+     <None Include="Assets\Resources\level3.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
