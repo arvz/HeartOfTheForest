@@ -48,6 +48,14 @@ function Update ()
 
 	if (Input.GetKeyDown("a")) {
 		WriteRecordedNotes();
+	} else if (Input.GetKeyDown("0")) {
+		Application.LoadLevel(0);
+	} else if (Input.GetKeyDown("1")) {
+		Application.LoadLevel(1);
+	} else if (Input.GetKeyDown("2")) {
+		Application.LoadLevel(2);
+	} else if (Input.GetKeyDown("3")) {
+		Application.LoadLevel(3);
 	}
 }
 
