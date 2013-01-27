@@ -7,10 +7,9 @@ private var isKeyDown : boolean;
 private var colliding = new Array();
 
 var recordedNotes = new Array();
+var explosion : GameObject;
 
-function Start () 
-{
-}
+private var particle : Transform;
 
 function Update () 
 {
@@ -19,12 +18,25 @@ function Update ()
 		GameObject.Find("ForestController").GetComponent(ForestController).GrowCheat();
 
 	isKeyDown = Input.GetKeyDown("space");
-	if (isKeyDown && colliding.length > 0) {
+	if (isKeyDown && colliding.length > 0) 
+	{
 		var collider : Collider = colliding.Shift();
+		
+		particle = collider.transform.Find("Particle System");
+		particle.parent = null;
+		particle.GetComponent(ParticleSystem).enableEmission = false;
+		Destroy(particle.gameObject, 4);
+		
+		Instantiate(explosion, collider.transform.position, Quaternion.identity); 
 		Destroy(collider.gameObject);
+		
 		RemoveColliding(collider);
 		GameObject.Find("ForestController").GetComponent(ForestController).Grow();
-	} else if (isKeyDown) {
+		
+
+	} 
+	else if (isKeyDown) 
+	{
 		GameObject.Find("ForestController").GetComponent(ForestController).Shrink();
 	}
 
@@ -48,7 +60,8 @@ function OnTriggerExit(other : Collider)
 {
 	// Destroy in 0.5 sec.
 	// TODO: some animation?
-	Destroy(other.gameObject, 1);
+	
+	Destroy(other.gameObject, 3.2);
 	RemoveColliding(other);
 }
 

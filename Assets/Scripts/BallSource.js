@@ -61,7 +61,8 @@ private function SourceBallsFromTimestamps()
 	} else if (currentSeasonIndex < 3) {
 		var lastBallTime : float = timestamps[nextBallIndex - 1];
 		if (Time.timeSinceLevelLoad - lastBallTime > 5) {
-			Application.LoadLevel(currentSeasonIndex + 1);
+			AutoFade.LoadLevel(currentSeasonIndex+1, 3, 1, Color.white);
+//			Application.LoadLevel(currentSeasonIndex + 1);
 		}
 	} else {
 		// Game over

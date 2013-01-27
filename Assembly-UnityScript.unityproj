@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_WIN;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_WIN;UNITY_64;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -44,23 +44,37 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BadBeat.js" />
+     <Compile Include="Assets\Blink.js" />
      <Compile Include="Assets\Scripts\AnimateCloud.js" />
      <Compile Include="Assets\Scripts\ArrayFactory.js" />
+     <Compile Include="Assets\Scripts\Autumn\Autumn_BackTreeNode.js" />
+     <Compile Include="Assets\Scripts\Autumn\Autumn_BushNode.js" />
+     <Compile Include="Assets\Scripts\Autumn\Autumn_RotateSun.js" />
+     <Compile Include="Assets\Scripts\Autumn\Autumn_TreeNode.js" />
+     <Compile Include="Assets\Scripts\Autumn\Autumn_VineNode.js" />
      <Compile Include="Assets\Scripts\BallSource.js" />
+     <Compile Include="Assets\Scripts\DestroyAfterX.js" />
      <Compile Include="Assets\Scripts\Fade.js" />
      <Compile Include="Assets\Scripts\ForestController.js" />
      <Compile Include="Assets\Scripts\Glow.js" />
      <Compile Include="Assets\Scripts\RotateBallAroundPivot.js" />
+     <Compile Include="Assets\Scripts\RotateSun.js" />
      <Compile Include="Assets\Scripts\ScalerScript.js" />
-     <Compile Include="Assets\Scripts\Summer\BackTreeNode.js" />
-     <Compile Include="Assets\Scripts\Summer\BushNode.js" />
-     <Compile Include="Assets\Scripts\Summer\CloudNode.js" />
-     <Compile Include="Assets\Scripts\Summer\RotateSun.js" />
-     <Compile Include="Assets\Scripts\Summer\TreeNode.js" />
-     <Compile Include="Assets\Scripts\Summer\VineNode.js" />
+     <Compile Include="Assets\Scripts\Spring\Spring_BackTreeNode.js" />
+     <Compile Include="Assets\Scripts\Spring\Spring_BushNode.js" />
+     <Compile Include="Assets\Scripts\Spring\Spring_TreeNode.js" />
+     <Compile Include="Assets\Scripts\Spring\Spring_VineNode.js" />
+     <Compile Include="Assets\Scripts\Summer\Summer_BackTreeNode.js" />
+     <Compile Include="Assets\Scripts\Summer\Summer_BushNode.js" />
+     <Compile Include="Assets\Scripts\Summer\Summer_RotateSun.js" />
+     <Compile Include="Assets\Scripts\Summer\Summer_TreeNode.js" />
+     <Compile Include="Assets\Scripts\Summer\Summer_VineNode.js" />
      <Compile Include="Assets\Scripts\TreeSway.js" />
      <Compile Include="Assets\Scripts\TriggerScript.js" />
+     <Compile Include="Assets\Scripts\Winter\Winter_BackTreeNode.js" />
+     <Compile Include="Assets\Scripts\Winter\Winter_BushNode.js" />
+     <Compile Include="Assets\Scripts\Winter\Winter_TreeNode.js" />
+     <Compile Include="Assets\Scripts\Winter\Winter_VineNode.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
   </ItemGroup>
   <ItemGroup>

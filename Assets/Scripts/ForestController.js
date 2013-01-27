@@ -36,6 +36,7 @@ public function GrowCheat()
 
 public function Shrink() 
 {
+	GameObject.Find("BadBeat").GetComponent(Glow).GlowNow();
 	if (scalingSpeed > minSpeed) {
 		scalingSpeed -= 2*growSpeed;
 	}
